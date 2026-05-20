@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #071B2A;
+  --color-navy-800: #0d2d47;
+  --color-navy-700: #1a3d5c;
+  --color-brand: #2BA6B1;
+  --color-brand-dark: #238D96;
+  --color-brand-light: #3dbdc9;
+  --color-pale: #EAF1F4;
+  --color-surface: #F7FAFC;
+  --color-muted: #5B6773;
+  --color-edge: #E2EBF0;
+
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #071B2A;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #F7FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: #2BA6B1;
+  border-radius: 4px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  70% { transform: scale(1.1); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float-delayed 8s ease-in-out infinite 2s;
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(43, 166, 177, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 166, 177, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
