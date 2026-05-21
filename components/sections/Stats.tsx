@@ -49,10 +49,10 @@ function StatCard({
     >
       <div className="text-4xl lg:text-5xl font-bold text-white mb-1 tabular-nums">
         {count}
-        <span className="text-brand">{suffix}</span>
+        <span className="text-white">{suffix}</span>
       </div>
-      <div className="text-brand text-sm font-semibold mb-2">{label}</div>
-      <div className="text-white/40 text-xs leading-relaxed">{description}</div>
+      <div className="text-white/80 text-sm font-semibold mb-2">{label}</div>
+      <div className="text-white/65 text-xs leading-relaxed">{description}</div>
     </motion.div>
   );
 }
