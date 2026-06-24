@@ -3,8 +3,6 @@ import { Resend } from "resend";
 
 export const runtime = "edge";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: NextRequest) {
   const { name, email, company, details } = await req.json();
 
@@ -22,6 +20,8 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const html = `
     <div style="font-family: 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #F7FAFC; padding: 32px; border-radius: 12px;">
