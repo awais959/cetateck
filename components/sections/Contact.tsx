@@ -112,7 +112,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="#" className="flex items-center gap-4 group">
+              <a href="https://www.linkedin.com/company/cetateck" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-pale border border-[#E2EBF0] flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-all duration-200">
                   <Globe size={16} />
                 </div>

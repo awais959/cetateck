@@ -48,16 +48,18 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3 mt-6">
               <a
-                href="mailto:hello@cetateck.com"
+                href="mailto:support@cetateck.com"
                 className="flex items-center gap-2 text-white/50 hover:text-brand text-sm transition-colors"
               >
                 <Mail size={15} />
-                hello@cetateck.com
+                support@cetateck.com
               </a>
             </div>
             <div className="flex items-center gap-3 mt-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/cetateck"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-white/50 hover:text-brand text-sm transition-colors"
               >
                 <Globe size={15} />

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   const { name, email, company, details } = await req.json();
@@ -11,26 +13,13 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const host = process.env.SMTP_HOST;
-  const port = parseInt(process.env.SMTP_PORT ?? "587");
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  const toEmail = process.env.CONTACT_TO_EMAIL;
-
-  if (!host || !user || !pass || !toEmail) {
-    console.error("SMTP environment variables not configured");
+  if (!process.env.RESEND_API_KEY) {
+    console.error("RESEND_API_KEY not configured");
     return NextResponse.json(
       { error: "Mail service not configured" },
       { status: 500 }
     );
   }
-
-  const transporter = nodemailer.createTransport({
-    host,
-    port,
-    secure: port === 465,
-    auth: { user, pass },
-  });
 
   const html = `
     <div style="font-family: 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #F7FAFC; padding: 32px; border-radius: 12px;">
@@ -85,14 +74,18 @@ export async function POST(req: NextRequest) {
   `;
 
   try {
-    await transporter.sendMail({
-      from: `"Cetateck Contact Form" <${user}>`,
-      to: toEmail,
+    const { error } = await resend.emails.send({
+      from: "Cetateck <noreply@cetateck.com>",
+      to: ["support@cetateck.com"],
       replyTo: email,
       subject: `New Enquiry from ${name}${company ? ` @ ${company}` : ""}`,
       html,
       text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || "—"}\n\nProject Details:\n${details}`,
     });
+
+    if (error) {
+      throw new Error(error.message);
+    }
 
     return NextResponse.json({ success: true });
   } catch (err) {
