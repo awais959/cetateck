@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Globe, Send, CheckCircle2, Clock, ArrowRight, AlertCircle } from "lucide-react";
+import { Mail, Globe, Send, CheckCircle2, Clock, ArrowRight, AlertCircle, Phone } from "lucide-react";
 
 type FormState = {
   name: string;
@@ -83,7 +83,7 @@ export default function Contact() {
             {/* Contact details */}
             <div className="space-y-5 mb-10">
               <a
-                href="mailto:hello@cetateck.com"
+                href="mailto:support@cetateck.com"
                 className="flex items-center gap-4 group"
               >
                 <div className="w-10 h-10 rounded-xl bg-pale border border-[#E2EBF0] flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-all duration-200">
@@ -92,7 +92,22 @@ export default function Contact() {
                 <div>
                   <p className="text-xs text-muted mb-0.5">Email</p>
                   <p className="text-sm font-medium text-navy">
-                    hello@cetateck.com
+                    support@cetateck.com
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href="tel:+19295891358"
+                className="flex items-center gap-4 group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-pale border border-[#E2EBF0] flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-all duration-200">
+                  <Phone size={16} />
+                </div>
+                <div>
+                  <p className="text-xs text-muted mb-0.5">Phone</p>
+                  <p className="text-sm font-medium text-navy">
+                    +1 929 589 1358
                   </p>
                 </div>
               </a>
@@ -132,7 +147,7 @@ export default function Contact() {
                 no commitment required.
               </p>
               <a
-                href="mailto:hello@cetateck.com?subject=Discovery Call Request"
+                href="mailto:support@cetateck.com?subject=Discovery Call Request"
                 className="inline-flex items-center gap-2 text-brand text-xs font-semibold hover:gap-3 transition-all duration-200"
               >
                 Book consultation
