@@ -7,6 +7,7 @@ import CloudEcosystem from "@/components/sections/CloudEcosystem";
 import About from "@/components/sections/About";
 import Process from "@/components/sections/Process";
 import Stats from "@/components/sections/Stats";
+import EnterpriseSolutions from "@/components/sections/EnterpriseSolutions";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <About />
         <Process />
         <Stats />
+        <EnterpriseSolutions />
         <Contact />
       </main>
       <Footer />
